@@ -3,8 +3,6 @@ body{
   max-width: 600px;
   margin-top: 32px;
   margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 .CafeMainPage{
   align-items: center;
@@ -14,7 +12,6 @@ body{
   display: flex;
   color: black;
   align-items: center;
-  margin-bottom: 20px;
 
 }
 .Cafe-Name{
@@ -24,18 +21,25 @@ body{
   margin-bottom: 16px;
   color: blue;
 }
-.Cafe-Menu{
-  font-size: 36px;
-  color: red;
+.Person{
+  margin-left: 20px;
+
 }
-.Search-Menu{
-  padding: 6px;
-  font-size: 10px;
-  color: gray;
-  border: 1px solid blue;
-  border-radius: 4px;
+.User{
+  display: flex;
+  font-size: 26px;
+  color: red;
+  margin-bottom: 20px;
+}
+.Admin{
   margin-left: 100px;
 }
+.Clerk{
+  margin-left: 100px;
+}
+
+
+
 .Menu-Name{
   color: blueviolet;
   font-size: 26px;
@@ -51,4 +55,28 @@ body{
 .Image{
   padding-left: 15px;
   margin-left: 20px;
+}
+
+.UserHeader{
+  padding: 10px;
+  background-color: lightgray;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.Flash-Error{
+  color: darkred;
+  margin-bottom: 20px;
+  font-size: 16px;
+
+}
+.Form-Submit{
+  font-size: 20px;
+  background-color: #38d838;
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+  margin-top: 20px;
+
 }

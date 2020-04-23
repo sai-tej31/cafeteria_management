@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>College Cafeteria</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="menu-app.css">
+
+
+</head>
+
+<body>
+  <article class="CafemainPage">
+    <p class="Cafe-Name"> College Cafeteria </p>
+    <div class="Cafe-Title">
+      <p class="Cafe-Menu"> Active-Menu </p>
+      <section class="Menus-List">
+        <% Menu.all.each do |menu| %>
+          <% if menu.active_menu %>
+            <p class="Menu-Name"> <%= menu.name %> </p>
+          <% end %>
+        <% end %>
+      </section>
+      <input class="Search-Menu" type="text" placeholder="Search for the items">
+    </div>
+  </article>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+body{
+  font-family: sans-serif;
+  max-width: 600px;
+  margin-top: 32px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.CafeMainPage{
+  align-items: center;
+  align-content: center;
+}
+.Cafe-Title{
+  display: flex;
+  color: black;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+.Cafe-Name{
+  font-size: 50px;
+  line-height: 1.6;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: blue;
+}
+.Cafe-Menu{
+  font-size: 36px;
+  color: red;
+}
+.Search-Menu{
+  padding: 6px;
+  font-size: 10px;
+  color: gray;
+  border: 1px solid blue;
+  border-radius: 4px;
+  margin-left: 50px;
+}
+.Menus-List{
+  margin-left: 50px;
+}
+.Menu-Name{
+  color: blueviolet;
+  font-size: 26px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Menu-Image{
+  display: flex;
+  padding-left: 25px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.Image{
+  padding-left: 15px;
+  margin-left: 20px;
+}

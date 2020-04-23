@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>College Cafeteria</title>
+  <link rel="stylesheet" type="text/css" href="menu-app.css">
+
+</head>
+
+<body>
+  <article class="CafemainPage">
+    <p class="Cafe-Name"> College Cafeteria </p>
+    <div class="Cafe-Title">
+      <p class="Cafe-Menu"> Total-Items </p>
+    </div>
+    <%= form_with(url: "/menu_items",method: "POST",class: "Add-Item") do %>
+      <input class="AddItem-Details" type="text" placeholder="Name of the Item" name="name">
+      <input class="AddItem-Details" type="text" placeholder="Description of the Item" name="description">
+      <input class="AddItem-Details" type="int" placeholder="Price of the Item" name="price">
+      <input class="Add-Button" type="submit" value="add">
+    <% end %>
+    <label class="MenuItem-Container">
+      <p class= "MenuItem-Checkbox">  Add </p>
+      <p class= "MenuItem-Name">  Name </p>
+      <p class="MenuItem-Description"> Description </p>
+      <p class="MenuItem-price"> Price </p>
+    </label>
+
+    <% MenuItem.all.each do |item| %>
+      <label class="MenuItem-Container">
+        <input class="MenuItem-Checkbox" name="add" type="checkbox"  >
+        <p class= "MenuItem-Name">  <%= item.name %> </p>
+        <p class="MenuItem-Description"><%= item.description %></p>
+        <p class="MenuItem-price"><%= item.price %></p>
+      </label>
+    <% end %>
+
+
+
+
+
+
+
+
+
+  </article>
+
+</body>

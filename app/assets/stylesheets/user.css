@@ -1,0 +1,45 @@
+.NewUsers_Title{
+  color: gray;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.New_User{
+  margin-bottom: 20px;
+
+}
+.Form-Section{
+  margin-bottom: 30px;
+
+}
+.FormInput-Label{
+  margin-bottom: 30px;
+  color: #555555;
+}
+.Form-Input{
+  font-size: 20px;
+  padding: 6px;
+  margin-bottom: 20px;
+}
+.Form-Submit{
+  font-size: 20px;
+  background-color: #38d838;
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+  margin-top: 20px;
+
+}
+.User-Signs{
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: blue;
+
+}
+.User-Page{
+align-items: center;
+align-content: center;
+
+}
+.User-Sign{
+  margin-bottom: 20px;
+}

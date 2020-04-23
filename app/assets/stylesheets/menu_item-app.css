@@ -1,0 +1,43 @@
+.Add-Item{
+  display: flex;
+}
+.AddItem-Details{
+  padding: 6px;
+  font-size: 16px;
+  color: gray;
+  margin-right: 10px;
+  border-radius: 4px;
+  border:1px solid gray;
+  margin-bottom: 20px;
+}
+.Add-Button{
+  padding: 6px;
+  font-size: 14px;
+  color:white;
+  background-color: green;
+  margin-right: 10px;
+  border-radius: 4px;
+  border:1px solid transparent;
+}
+.MenuItem-Container{
+  display: flex;
+  margin-bottom: 20px;
+}
+.MenuItem-Name{
+  font-size: 16px;
+  color: gray;
+  margin-left: 50px;
+}
+.MenuItem-Description{
+  font-size: 16px;
+  color: gray;
+  margin-left: 100px;
+}
+.MenuItem-price{
+  font-size: 16px;
+  color: gray;
+  margin-left: 200px;
+}
+.MenuItem-Checkbox{
+  margin-left: 50px;
+}
