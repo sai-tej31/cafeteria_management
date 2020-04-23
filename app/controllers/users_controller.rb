@@ -29,13 +29,10 @@ class UsersController < ApplicationController
   def show
     if User.customer
       render "customer"
-      user.destroy(user.id)
     elsif User.admin
       render "admin"
-      user.destroy(user.id)
     elsif User.clerk
       render "clerk"
-      user.destroy(user.id)
     end
   end
 end
