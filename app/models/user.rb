@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  def self.admin
+  def admin
     User.where(role: "admin")
   end
-  def self.clerk
+  def clerk
     User.where(role: "clerk")
   end
-  def self.customer
+  def customer
     User.where(role: "customer")
   end
 end

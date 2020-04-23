@@ -1,6 +1,6 @@
 class Menu < ActiveRecord::Base
-  has_many :menu_items
-  def to_pleasant_string
-    "#{id} #{name} "
+
+  def self.of_menu(menu)
+    all.where(menu_id: menu.id)
   end
 end

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   def current_user
     return @current_user if @current_user
     current_user_id = session[:id]
@@ -16,4 +17,15 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
+
+  def current_menu
+    return @current_menu if @current_menu
+    current_menu_id = menu[:id]
+    if current_menu_id
+      @current_menu = Menu.find(current_menu_id)
+    else
+      nil
+    end
+  end
+
 end

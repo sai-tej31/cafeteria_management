@@ -16,6 +16,8 @@
 <body>
   <article class="CafemainPage">
     <p class="Cafe-Name"> College Cafeteria </p>
+    <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
+    <p> <%= link_to "Change The Active-menu!!!" , new_menu_path %> </p>
     <div class="Cafe-Title">
       <p class="Cafe-Menu"> Active-Menu </p>
       <section class="Menus-List">
@@ -25,8 +27,20 @@
           <% end %>
         <% end %>
       </section>
-      <input class="Search-Menu" type="text" placeholder="Search for the items">
     </div>
+    <% MenuItem.all.each do |item| %>
+      <label class="MenuItem">
+        <p class= "MenuItemName">  <%= item.name %> </p>
+        <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpeg" %> </p>
+        <p class="MenuItemDescription"> <%= item.description %></p>
+        <div class="MenuButtPrice">
+          <%= form_with url: menus_path do |form| %>
+            <%= form.submit "Add to Cart!", class: "MenuItemButton" %>
+          <% end %>
+          <p class="MenuItemprice"> Rs. <%= item.price %></p>
+        </div>
+      </label>
+    <% end %>
   </article>
 </body>
 

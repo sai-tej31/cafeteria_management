@@ -1,0 +1,11 @@
+<h1> Change The Menu </h1>
+<div class="MenusNames">
+  <% Menu.all.each do |menu| %>
+    <%= form_with(url: "/menus/#{menu.id}",method:"PUT") do %>
+      <input class="Todoitem-Checkbox" name="active_menu" type="checkbox" <%= menu.active_menu ? "checked" : "" %> onclick="this.form.submit()" >
+    <%end%>
+    <p class= "Text-Deceration">  <%= menu.name %> </p>
+    <% if menu.active_menu %>
+    <% end %>
+  <% end %>
+</div>
