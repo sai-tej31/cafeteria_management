@@ -1,12 +1,11 @@
 class MenusController < ApplicationController
-  skip_before_action :ensure_user_logged_in
   def index
     render "index"
   end
   def new
     render "new"
   end
-  def show
+  def create
   end
   def update
     id = params[:id]
@@ -18,7 +17,6 @@ class MenusController < ApplicationController
       flag = 1
     else
       flag = 0
-      initial = true
     end
     Menu.all.each do |menu|
       if menu.active_menu==true
@@ -26,13 +24,11 @@ class MenusController < ApplicationController
       end
     end
     if flag != 1
-      flash[:error] = "Select Only One Active Menu"
+      flash[:error] = "Select Only One Menu as Active Menu"
       redirect_to new_menu_path
     else
       if menu.active_menu == true or flag == 1
         redirect_to menus_path
-      else
-        redirect_to new_menu_path
       end
     end
   end

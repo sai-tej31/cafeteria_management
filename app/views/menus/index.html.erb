@@ -24,6 +24,10 @@
         <% Menu.all.each do |menu| %>
           <% if menu.active_menu %>
             <p class="Menu-Name"> <%= menu.name %> </p>
+            <%= form_with(url: "/menus/#{menu.id}",method:"PUT") do %>
+              <p> <%= link_to "add menu items!!!" , menu_items_path %> </p>
+            <% end  %>
+            <p> <%= link_to "check all the orders!" , orders_path %> </p>
           <% end %>
         <% end %>
       </section>
@@ -34,7 +38,7 @@
         <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpeg" %> </p>
         <p class="MenuItemDescription"> <%= item.description %></p>
         <div class="MenuButtPrice">
-          <%= form_with url: menus_path do |form| %>
+          <%= form_with url: "/order_items?id=#{item.id}", method:"POST" do |form| %>
             <%= form.submit "Add to Cart!", class: "MenuItemButton" %>
           <% end %>
           <p class="MenuItemprice"> Rs. <%= item.price %></p>

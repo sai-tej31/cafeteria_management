@@ -1,12 +1,24 @@
+html{
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
 body{
+  margin: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
-  max-width: 600px;
-  margin-top: 32px;
-  margin-bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  border: solid red 4px;
+  border-radius: 2px;
 }
 .CafeMainPage{
   align-items: center;
-  align-content: center;
+  align-content: flex-start;
 }
 .Cafe-Title{
   display: flex;

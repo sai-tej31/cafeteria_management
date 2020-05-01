@@ -1,0 +1,19 @@
+.Orders{
+  display: flex;
+  margin-left: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+
+}
+.Order-Id{
+  color: gray;
+  margin-left: 15px;
+}
+.Order-UserId{
+  color: blue;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+.Details{
+  margin-left: 10px;
+}

@@ -41,3 +41,21 @@
 .MenuItem-Checkbox{
   margin-left: 50px;
 }
+.MenuItem-delete{
+  visibility: hidden;
+  margin-left: 10px;
+}
+.MenuItem-Container:hover .MenuItem-delete{
+  visibility: visible;
+}
+.Quantity{
+  margin-left: 20px;
+  color: gray;
+}
+.Add-Item{
+  margin-left: 600px;
+}
+.Total{
+  display: flex;
+  margin-left: 50px;
+}

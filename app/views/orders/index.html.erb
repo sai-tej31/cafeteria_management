@@ -1,0 +1,16 @@
+<% Order.all.each do |order| %>
+  <div class="Orders">
+    <p class="Order-Id"> <%= order.id%> </p>
+    <p class="Order-UserId"> <%= order.user_id%> </p>
+    <p>
+      <% User.all.each do |user| %>
+        <% if user.id == order.user_id %>
+          <p> <%= user.name %> </p>
+        <% end %>
+      <% end %>
+    </p>
+    <p class= "MenuItem-Name">  <%= order.date %> </p>
+    <p class="MenuItem-Description"><%= order.status %></p>
+    <p class="Details"> <%= link_to "Order Details" , order_items_path %> </p>
+  </div>
+<% end %>

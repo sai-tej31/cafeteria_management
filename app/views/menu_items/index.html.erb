@@ -32,20 +32,19 @@
 
     <% MenuItem.all.each do |item| %>
       <label class="MenuItem-Container">
-        <input class="MenuItem-Checkbox" name="add" type="checkbox"  >
+        <%= form_with(url: "/menu_items/#{item.id}",method:"PUT") do %>
+          <input class="Todoitem-Checkbox" type="checkbox"  onclick="this.form.submit()" >
+        <% end %>
         <p class= "MenuItem-Name">  <%= item.name %> </p>
         <p class="MenuItem-Description"><%= item.description %></p>
         <p class="MenuItem-price"><%= item.price %></p>
+        <a href ="javascript:void(0)" class ="MenuItem-delete">
+          <%= form_with(url: "/menu_items/#{item.id}",method: "delete") do %>
+            <input type="image" src="trash-can-outline.svg" />
+          <% end %>
+        </a>
       </label>
     <% end %>
-
-
-
-
-
-
-
-
 
   </article>
 

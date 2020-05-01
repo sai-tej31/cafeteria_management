@@ -2,12 +2,8 @@
 <section class="New_User">
   <%= form_with url: users_path do |form| %>
     <div class="Form-section">
-      <p class="FormInput-Label"> First-Name </p>
-      <%= form.text_field :first_name, class: "Form-Input" %>
-    </div>
-    <div class="Form-section">
-      <p class="FormInput-Label"> Last-Name </p>
-      <%= form.text_field :last_name, class: "Form-Input" %>
+      <p class="FormInput-Label"> Name </p>
+      <%= form.text_field :name, class: "Form-Input" %>
     </div>
     <div class="Form-section">
       <p class="FormInput-Label"> Email </p>
@@ -16,7 +12,13 @@
     <div class="Form-section">
       <p class="FormInput-Label"> Password </p>
       <%= form.password_field :password, class: "Form-Input" %>
-    </div class="Form-Section">
+    </div>
+    <div class="Form-section">
+      <p class="FormInput-Label"> Role </p>
+      <%= form.text_field :role, class: "Form-Input" %>
+    </div>
+    <div class="Form-Section">
       <%= form.submit "Sign-up!", class: "Form-Submit"%>
+    </div>
   <% end %>
 </section>

@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
-  def admin
+  has_secure_password
+  has_many :orders
+  def admin?
     User.where(role: "admin")
   end
-  def clerk
+  def clerk?
     User.where(role: "clerk")
   end
-  def customer
+  def customer?
     User.where(role: "customer")
   end
 end

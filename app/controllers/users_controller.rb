@@ -11,28 +11,34 @@ class UsersController < ApplicationController
 #      render "clerk"
 #    end
   end
+
+  def new
+    render "users/customer_new"
+  end
+
+
   def create
     user = User.new(
-      first_name: params[:first_name],
+      name: params[:name],
       email: params[:email],
       password: params[:password],
       role: params[:role],
     )
     if user.save
       flash[:error] = "Regestered successfully! sign in to continue"
-      redirect_to root_path
+      redirect_to "/users/new"
     else
       flash["error"] = user.errors.full_messages.join(", ")
       redirect_to new_user_path
     end
   end
   def show
-    if User.customer
-      render "customer"
-    elsif User.admin
-      render "admin"
-    elsif User.clerk
-      render "clerk"
-    end
+#    if customer
+    render "customer"
+#    elsif admin
+#      render "admin"
+#    elsif clerk
+#      render "clerk"
+#    end
   end
 end

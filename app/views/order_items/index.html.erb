@@ -1,3 +1,25 @@
 <p class="Cafe-Name"> College Cafeteria </p>
 <p class="CartTitle"> CART </p>
-<p class="CartAdd"> Add Items To your Cart </p>
+
+<% if OrderItem.count == 0 %>
+  <p class="CartAdd"> Your Cart is Empty! Add Items To your Cart </p>
+<% end %>
+
+<p class="Add-Item"> <%= link_to "add more items!!!" , menus_path %> </p>
+<% OrderItem.all.each do |item| %>
+  <label class="MenuItem-Container">
+    <p> <% item.id %> </p>
+    <p class= "MenuItem-Name">  <%= item.menu_item_name %> </p>
+    <p class="MenuItem-price"> <%= item.menu_item_price %> </p>
+    <p class ="Quantity"> <%= item.quantity %> </p>
+    <%= form_with url: "/order_items/#{item.id}", method:"delete" do |form| %>
+      <%= form.submit "Remove item", class: "MenuItemButton" %>
+    <% end %>
+  </label>
+<% end %>
+<div class ="Total">
+  <p> Total </p>
+  <%= form_with url: "/orders" do |form| %>
+    <%= form.submit "Order", class: "MenuItemButton" %>
+  <% end %>
+</div>
