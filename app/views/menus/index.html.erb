@@ -15,9 +15,11 @@
 
 <body>
   <article class="CafemainPage">
-    <p class="Cafe-Name"> College Cafeteria </p>
-    <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
-    <p> <%= link_to "Change The Active-menu!!!" , new_menu_path %> </p>
+    <div class= "Cafe-Head">
+      <p class="Cafe-Name"> College Cafeteria </p>
+      <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
+      <p> <%= link_to "Change The Active-menu!!!" , new_menu_path %> </p>
+    </div>
     <div class="Cafe-Title">
       <p class="Cafe-Menu"> Active-Menu </p>
       <section class="Menus-List">
@@ -25,26 +27,28 @@
           <% if menu.active_menu %>
             <p class="Menu-Name"> <%= menu.name %> </p>
             <%= form_with(url: "/menus/#{menu.id}",method:"PUT") do %>
-              <p> <%= link_to "add menu items!!!" , menu_items_path %> </p>
+              <p class="AddmenuItems"> <%= link_to "add menu items!!!" , menu_items_path %> </p>
             <% end  %>
-            <p> <%= link_to "check all the orders!" , orders_path %> </p>
+            <p class="AllOrders"> <%= link_to "check all the orders!" , orders_path %> </p>
           <% end %>
         <% end %>
       </section>
     </div>
-    <% MenuItem.all.each do |item| %>
-      <label class="MenuItem">
-        <p class= "MenuItemName">  <%= item.name %> </p>
-        <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpeg" %> </p>
-        <p class="MenuItemDescription"> <%= item.description %></p>
-        <div class="MenuButtPrice">
-          <%= form_with url: "/order_items?id=#{item.id}", method:"POST" do |form| %>
-            <%= form.submit "Add to Cart!", class: "MenuItemButton" %>
-          <% end %>
-          <p class="MenuItemprice"> Rs. <%= item.price %></p>
-        </div>
-      </label>
-    <% end %>
+    <div class= "Items">
+      <% MenuItem.all.each do |item| %>
+        <label class="MenuItem">
+          <p class= "MenuItemName">  <%= item.name %> </p>
+          <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpeg" %> </p>
+          <p class="MenuItemDescription"> <%= item.description %></p>
+          <div class="MenuButtPrice">
+            <%= form_with url: "/order_items?id=#{item.id}", method:"POST" do |form| %>
+              <%= form.submit "Add to Cart!", class: "MenuItemButton" %>
+            <% end %>
+            <p class="MenuItemprice"> Rs. <%= item.price %></p>
+          </div>
+        </label>
+      <% end %>
+    </div>
   </article>
 </body>
 

@@ -7,18 +7,15 @@ html{
 
 }
 body{
-  margin: 0;
-  box-sizing: border-box;
+  margin: 25px;
   font-family: sans-serif;
-  width: 100%;
+  min-width: 100%;
   min-height: 100%;
-  display: block;
-  border: solid red 4px;
-  border-radius: 2px;
 }
 .CafeMainPage{
   align-items: center;
-  align-content: flex-start;
+  align-content: center;
+  margin-left: inherit;
 }
 .Cafe-Title{
   display: flex;
