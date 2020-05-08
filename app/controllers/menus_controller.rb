@@ -1,11 +1,21 @@
 class MenusController < ApplicationController
   def index
+    @menus = Menu.order(:name)
+    @order = current_user.orders.creating_order
     render "index"
   end
   def new
     render "new"
   end
   def create
+    Menu.create(name: params[:name])
+    flash[:error] = "Menu created successfully"
+    redirect_to new_menu_path
+  end
+  def show
+    @menus = Menu.order(:name)
+    @order = current_user.orders.creating_order
+    render "options"
   end
   def update
     id = params[:id]
@@ -31,6 +41,13 @@ class MenusController < ApplicationController
         redirect_to menus_path
       end
     end
+  end
+  def destroy
+    id =params[:id]
+    menu = Menu.find(id)
+    menu.destroy
+    flash[:error] = "Menu is deleted"
+    redirect_to new_menu_path
   end
 
 end

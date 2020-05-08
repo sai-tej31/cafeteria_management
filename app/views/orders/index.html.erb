@@ -9,8 +9,15 @@
         <% end %>
       <% end %>
     </p>
-    <p class= "MenuItem-Name">  <%= order.date %> </p>
-    <p class="MenuItem-Description"><%= order.status %></p>
-    <p class="Details"> <%= link_to "Order Details" , order_items_path %> </p>
+    <p class= "Order-Date">  <%= order.date %> </p>
+    <div class="Order-status">
+      <%= order.status  %>
+    </div>
+    <%= form_with url: "/orders/#{order.id}", method:"get" do |form| %>
+      <%= link_to "order details", "orders/#{order.id}" %> </p>
+    <% end %>
+    <%= form_with url: "/orders/#{order.id}", method:"delete" do |form| %>
+      <%= form.submit "Remove item", class: "MenuItemButton" %>
+    <% end %>
   </div>
 <% end %>

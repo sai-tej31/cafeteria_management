@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>College Cafeteria</title>
   <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="home-app.css">
   <link rel="stylesheet" type="text/css" href="menu-app.css">
 
 
@@ -15,38 +16,39 @@
 
 <body>
   <article class="CafemainPage">
-    <div class= "Cafe-Head">
+    <div class="Cafe-Head">
       <p class="Cafe-Name"> College Cafeteria </p>
-      <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
-      <p> <%= link_to "Change The Active-menu!!!" , new_menu_path %> </p>
+      <p class="Options"> <%= link_to "Options" , "/menus/options" %> </p>
     </div>
-    <div class="Cafe-Title">
-      <p class="Cafe-Menu"> Active-Menu </p>
-      <section class="Menus-List">
-        <% Menu.all.each do |menu| %>
-          <% if menu.active_menu %>
+    <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
+    <div class="Menu-Title">
+      <% @menus.each do |menu| %>
+        <% if menu.active_menu %>
+          <section class="Menus-List">
             <p class="Menu-Name"> <%= menu.name %> </p>
-            <%= form_with(url: "/menus/#{menu.id}",method:"PUT") do %>
-              <p class="AddmenuItems"> <%= link_to "add menu items!!!" , menu_items_path %> </p>
-            <% end  %>
-            <p class="AllOrders"> <%= link_to "check all the orders!" , orders_path %> </p>
-          <% end %>
-        <% end %>
-      </section>
-    </div>
-    <div class= "Items">
-      <% MenuItem.all.each do |item| %>
-        <label class="MenuItem">
-          <p class= "MenuItemName">  <%= item.name %> </p>
-          <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpeg" %> </p>
-          <p class="MenuItemDescription"> <%= item.description %></p>
-          <div class="MenuButtPrice">
-            <%= form_with url: "/order_items?id=#{item.id}", method:"POST" do |form| %>
-              <%= form.submit "Add to Cart!", class: "MenuItemButton" %>
+          </section>
+          <div class= "Items">
+            <% menu.menu_items.all.each do |item| %>
+              <label class="MenuItem">
+                <p class= "MenuItemName">  <%= item.name %> </p>
+                <% if File.file?("#{Rails.root}/app/assets/images/menu_items/#{item.name}.jpg") %>
+                  <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpg" %> </p>
+                <% elsif File.file?("#{Rails.root}/app/assets/images/menu_items/#{item.name}.jpeg") %>
+                  <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpeg" %> </p>
+                <% else %>
+                  <p class="MenuItemImage"> <%= image_tag "menu_items/default.jpeg" %> </p>
+                <% end %>
+                <p class="MenuItemDescription"> <%= item.description %></p>
+                <div class="MenuButtPrice">
+                  <%= form_with url: "/order_items?id=#{item.id}", method:"POST" do |form| %>
+                    <%= form.submit "Add to Cart!", class: "MenuItemButton" %>
+                  <% end %>
+                  <p class="MenuItemprice"> Rs. <%= item.price %></p>
+                </div>
+              </label>
             <% end %>
-            <p class="MenuItemprice"> Rs. <%= item.price %></p>
           </div>
-        </label>
+        <% end %>
       <% end %>
     </div>
   </article>

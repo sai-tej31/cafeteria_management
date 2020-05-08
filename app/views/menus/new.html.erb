@@ -1,11 +1,22 @@
-<h1> Change The Menu </h1>
+<div class = "MenuChangeTop">
+  <h1> Change The Menu </h1>
+  <%= form_with(url: "/menus",method: "POST",class: "Add-Item") do %>
+    <input class="AddItem-Details" type="text" placeholder="Name of the menu" name="name">
+    <input class="Add-Button" type="submit" value="add">
+  <% end %>
+</div>
 <div class="MenusNames">
   <% Menu.all.each do |menu| %>
-    <%= form_with(url: "/menus/#{menu.id}",method:"PUT") do %>
-      <input class="Todoitem-Checkbox" name="active_menu" type="checkbox" <%= menu.active_menu ? "checked" : "" %> onclick="this.form.submit()" >
-    <%end%>
-    <p class= "Text-Deceration">  <%= menu.name %> </p>
-    <% if menu.active_menu %>
-    <% end %>
+    <div class ="All-Menus">
+      <%= form_with(url: "/menus/#{menu.id}",method: "PUT") do %>
+        <input class="Todoitem-Checkbox" name="active_menu" type="checkbox" <%= menu.active_menu ? "checked" : "" %> onclick="this.form.submit()" >
+      <%end%>
+      <p class= "Text-Deceration">  <%= menu.name %> </p>
+      <a href ="javascript:void(0)" class ="Menu-Delete">
+        <%= form_with(url: "/menus/#{menu.id}",method: "delete") do %>
+          <input type="submit" value="Delete" />
+        <% end %>
+      </a>
+    </div>
   <% end %>
 </div>

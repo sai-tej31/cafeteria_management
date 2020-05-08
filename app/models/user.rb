@@ -2,12 +2,19 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :orders
   def admin?
-    User.where(role: "admin")
+    if User.where(role: "admin").exists
+      return true
+    end
   end
   def clerk?
-    User.where(role: "clerk")
+    if User.where(role: "clerk").exists
+      return true
+    end
   end
-  def customer?
-    User.where(role: "customer")
+  def self.customer
+    where("role = ?", "customer")
+  end
+  def self.clerk
+    where("role = ?", "clerk")
   end
 end

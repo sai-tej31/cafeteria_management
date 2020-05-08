@@ -13,23 +13,45 @@ class UsersController < ApplicationController
   end
 
   def new
-    render "users/customer_new"
+    render "users/new"
   end
 
 
   def create
+    if params[:role]
+      role = params[:role]
+    else
+      role = "customer"
+    end
     user = User.new(
       name: params[:name],
       email: params[:email],
       password: params[:password],
-      role: params[:role],
+      role: role
+
     )
-    if user.save
-      flash[:error] = "Regestered successfully! sign in to continue"
-      redirect_to "/users/new"
+    current_uri = request.env['PATH_INFO']
+    user_check = User.find_by(email: params[:email])
+    if user_check
+      flash[:error] = "Email already exists"
+      if current_uri == "/users/new"
+        redirect_to "/users/new"
+      else
+        redirect_to "/menus/options"
+      end
     else
-      flash["error"] = user.errors.full_messages.join(", ")
-      redirect_to new_user_path
+      if user.save
+        if user.role == clerk
+          flash[:error] = "Regestered successfully"
+          redirect_to "/menus/options"
+        else
+          flash[:error] = "Regestered successfully"
+          redirect_to root_path
+        end
+      else
+        flash["error"] = user.errors.full_messages.join(", ")
+        redirect_to new_user_path
+      end
     end
   end
   def show

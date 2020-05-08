@@ -1,29 +1,35 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.orders
     render "index"
   end
   def create
-    new_order = Order.new(
-      date: Date.today,
-      user_id: current_user.id,
-      status: "Not completed",
-    )
-    if OrderItem.all.where(order_id: new_order.id).count != 0
-      if new_order.save
-        flash[:error] ="Your Order is placed"
-        redirect_to "/order_items"
-      else
-        flash[:error] = new_order.errors.full_messages.join(", ")
-        redirect_to "/order_items"
-      end
-    else
+    @order_update = current_user.orders.creating_order
+    if @order_update.order_items.empty?
       flash[:error] ="Add items to create an order"
       redirect_to "/order_items"
+    else
+      @order_update.update!(
+        date: Date.today,
+        status: "confirmed",
+      )
+      if @order_update.save!
+        flash[:error] ="Your order reached us,soon it will be delivered"
+        redirect_to menus_path
+      else
+        flash[:error] ="order not placed"
+        redirect_to menus_path
+      end
     end
-    def show
-      id = params[:id]
-      render "orders/#{@orders.id}"
-    end
+  end
+  def show
+    id = params[:id]
+    @specific_order = Order.find(id)
+    render "show"
+  end
+  def destroy
+    id = params[:id]
+    item = Order.find(id)
+    item.destroy
+    redirect_to orders_path
   end
 end

@@ -2,6 +2,7 @@
 <html lang="en">
 
 
+
 <head>
 
   <meta charset="UTF-8">
@@ -14,28 +15,39 @@
 </head>
 
 <body>
-  <article class="CafemainPage">
-    <p class="Cafe-Name"> College Cafeteria </p>
+   <style>
+      body {
+        background-image: url('cafe3.jpeg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style>
 
-    <p class="Admin"> <%= link_to "Get Into Our Cafe!" , users_path %> </p>
+  <article class="Cafe-Page">
+  <div class="Cafe-Home">
+    <h1> College Cafeteria </h1>
+  </div>
+  <p class="NewUsers_Title"> Sign-in! </p>
+  <section class="New_User">
+    <%= form_with url: sessions_path do |form| %>
 
-    <section class="Menus-List">
-      <p class="Menu-Name"> Chinese </p>
-      <a href="javascript:void(0)" class="Menu-Image">
-        <img src="chinese.jpg" height="120" width="120" class="Image">
-        <img src="chinese2.jpeg" height="120" width="120" class="Image">
-      </a>
-      <p class="Menu-Name"> South-Indian </p>
-      <a href="javascript:void(0)" class="Menu-Image">
-        <img src="south-ind.jpeg" height="120" width="120" class="Image">
-        <img src="south-ind2.jpeg" height="120" width="120" class="Image">
-      </a>
-      <p class="Menu-Name"> North-indian </p>
-      <a href="javascript:void(0)" class="Menu-Image">
-        <img src="north-ind.jpeg" height="120" width="120" class="Image">
-        <img src="north-ind2.jpeg" height="120" width="120" class="Image">
-      </a>
-    </section>
+      <div class="Form-section">
+        <p class="FormInput-Label"> Email </p>
+        <%= form.email_field :email, class: "Form-Input" %>
+      </div>
+
+      <div class="Form-section">
+        <p class="FormInput-Label"> Password </p>
+        <%= form.password_field :password, class: "Form-Input" %>
+      </div >
+      <div style="display: flex; align-items: center; align-contents: center;">
+        <%= form.submit "Sign-in!", class: "Form-Submit"%>
+        <p style="margin-left: 50px; margin-top: 10px; color: green;"> <%= link_to "Create account!" , new_user_path %> </p>
+      <div>
+    <% end %>
+  </section>
+
   </article>
 </body>
 

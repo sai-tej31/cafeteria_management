@@ -6,24 +6,6 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
-.CafeMainPage{
-  align-items: center;
-  align-content: center;
-}
-.Cafe-Title{
-  display: flex;
-  color: black;
-  align-items: center;
-  margin-bottom: 20px;
-
-}
-.Cafe-Name{
-  font-size: 50px;
-  line-height: 1.6;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: blue;
-}
 .Cafe-Menu{
   font-size: 36px;
   color: red;
@@ -44,9 +26,8 @@ body{
   align-items: center;
 }
 .Menu-Name{
-  color: blueviolet;
-  font-size: 26px;
-  margin-top: 10px;
+  color: black;
+  font-size: 36px;
   margin-bottom: 10px;
 }
 .Menu-Image{
@@ -98,25 +79,56 @@ body{
   color: blue;
 }
 .MenusNames{
-  display: flex;
   align-items: center;
 }
 .Items{
   display: flex;
 }
-.Cafe-Head{
-  display: flex;
-  margin-left: 20px;
-  align-items: center;
-  align-content: center;
-}
+
 .Cart{
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 1700px;
 }
 .AllOrders{
 margin-left: 50px;
 }
 .AddmenuItems{
   margin-left: 50px;
+}
+.All-Menus{
+  display: flex;
+  margin-top: 10px;
+}
+
+.Cafe-Head{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.Options{
+  margin-left: 200px;
+}
+.Menu-Title{
+  margin-left: 20px;
+}
+.Options-List{
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: 50px;
+  align-items: center;
+  align-content: center;
+}
+.Menu-Delete{
+  margin-left: 10px;
+}
+.MenuChangeTop{
+  display: flex;
+}
+.Add-Button{
+  padding: 2px;
+  font-size: 14px;
+  color:rgb(80, 74, 74);
+  background-color: green;
+  margin-left: 10px;
+  border-radius: 1px;
+  border:1px solid transparent;
 }
