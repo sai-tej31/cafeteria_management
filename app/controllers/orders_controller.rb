@@ -15,17 +15,27 @@ class OrdersController < ApplicationController
       if @order_update.save!
         flash[:error] ="Your order reached us,soon it will be delivered"
         redirect_to menus_path
-      else
-        flash[:error] ="order not placed"
-        redirect_to menus_path
       end
     end
+  end
+  def pending_orders
+    render "pending_orders"
   end
   def show
     id = params[:id]
     @specific_order = Order.find(id)
-    render "show"
+    render "all_orders"
   end
+
+  def update
+    id = params[:id]
+    order = Order.find(id)
+    order.status = "delivered"
+    order.save!
+    flash[:error] =" Order delivered"
+    render "pending_orders"
+  end
+
   def destroy
     id = params[:id]
     item = Order.find(id)

@@ -1,0 +1,26 @@
+<div class ="Cart-Items ">
+  <div class ="OrderItemDetails">
+    <p style="margin-left:15px; font-size: 25px;"> Item Name </p>
+    <p style="margin-left:15px; font-size: 25px;"> Quantity </p>
+    <p style="margin-left:15px; font-size: 25px;"> Net-Item </p>
+  </div>
+  <% @specific_order.all_items.uniq.each do |item|  %>
+    <div class ="OrderItemDetails">
+      <p style="margin-left:35px; font-size: 25px;"> <%= item %> </p>
+      <p style="margin-left:95px; font-size: 25px;"> <%= @specific_order.all_items.count(item) %> </p>
+      <p style="margin-left:85px; font-size: 25px;"> Rs. <%= @specific_order.order_items.price(item) * @specific_order.all_items.count(item) %> </p>
+    </div>
+  <% end %>
+
+  <div class= "Total">
+    <p style="margin-left:35px; font-size: 25px;"> Total </p>
+    <p style="margin-left:155px; font-size: 25px;" > Rs. <%= @specific_order.total %> </p>
+  </div >
+  <div style ="display:flex; align-items: center; align-content: center;">
+    <h3 class= " status "> Order Status: </h3>
+    <p class =" status-display"> <%= @specific_order.status %> </p>
+  </div>
+  <h3 style= "margin-top: 30px;">
+    <%= link_to "Go Back to Home page", "/menus"%>
+  </h3>
+</div>

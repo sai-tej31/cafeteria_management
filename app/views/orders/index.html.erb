@@ -2,13 +2,7 @@
   <div class="Orders">
     <p class="Order-Id"> <%= order.id%> </p>
     <p class="Order-UserId"> <%= order.user_id%> </p>
-    <p>
-      <% User.all.each do |user| %>
-        <% if user.id == order.user_id %>
-          <p> <%= user.name %> </p>
-        <% end %>
-      <% end %>
-    </p>
+    <p> <%= User.find(order.user_id).name %> </p>
     <p class= "Order-Date">  <%= order.date %> </p>
     <div class="Order-status">
       <%= order.status  %>

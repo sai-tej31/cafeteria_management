@@ -10,5 +10,18 @@ class Order < ActiveRecord::Base
   def self.delivered
     where("status= ?","delivered").first
   end
+  def total
+    amount = 0
+    order_items.each { |item|
+      amount = amount + item.menu_item_price
+    }
+    amount
+  end
+  def all_items
+    order_items.order(:menu_item_name).map { |item| item.menu_item_name }
+  end
+  def order_item(item)
+    order_items.where(menu_item_name: item).first
+  end
 
 end

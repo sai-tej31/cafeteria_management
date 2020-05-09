@@ -17,3 +17,18 @@
 .Details{
   margin-left: 10px;
 }
+.status{
+  font-size: 50px;
+  margin-top: 30px;
+  color: blue;
+}
+.status-display{
+  font-size: 30px;
+  margin-top: 30px;
+  margin-left: 45px;
+  color: red;
+}
+.pending-orders{
+  font-size: 40px;
+  color: olivedrab;
+}

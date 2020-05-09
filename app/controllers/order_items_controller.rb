@@ -18,14 +18,14 @@ class OrderItemsController < ApplicationController
       menu_item_price: item.price,
       quantity: 1,
     )
-#      if new_order_item.save
     flash[:error] ="#{item.name} added to cart"
-    redirect_to menus_path
-#      else
-#        flash[:error] = new_order_item.errors.full_messages.join(", ")
- #       redirect_to menus_path
-  #    end
+    if params[:count]
+      redirect_to order_items_path
+    else
+      redirect_to menus_path
+    end
   end
+
   def destroy
     id = params[:id]
     item = OrderItem.find(id)
