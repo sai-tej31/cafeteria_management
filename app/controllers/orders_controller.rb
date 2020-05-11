@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   def show
     id = params[:id]
     @specific_order = Order.find(id)
-    render "all_orders"
+    render "order"
   end
 
   def update

@@ -18,9 +18,8 @@
   <article class="CafemainPage">
     <div class="Cafe-Head">
       <p class="Cafe-Name"> College Cafeteria </p>
-      <p class="Options"> <%= link_to "Options" , "/menus/options" %> </p>
+      <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
     </div>
-    <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
     <div class="Menu-Title">
       <% @menus.each do |menu| %>
         <% if menu.active_menu %>

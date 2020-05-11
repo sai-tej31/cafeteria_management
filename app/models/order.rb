@@ -7,8 +7,8 @@ class Order < ActiveRecord::Base
   def self.confirmed
     where("status= ?","confirmed").first
   end
-  def self.delivered
-    where("status= ?","delivered").first
+  def self.delivered?
+     status= "delivered"
   end
   def total
     amount = 0

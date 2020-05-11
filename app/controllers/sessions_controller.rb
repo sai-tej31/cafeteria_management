@@ -8,11 +8,14 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-
-      redirect_to menus_path
+      if user.role != "customer"
+        redirect_to "/users/admin"
+      else
+        redirect_to menus_path
+      end
     else
       flash[:error] = "Login-Attempt invalid,Please Try Again!!"
-      redirect_to new_sessions_path
+      redirect_to root_path
     end
   end
 

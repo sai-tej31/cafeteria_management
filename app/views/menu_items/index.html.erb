@@ -34,7 +34,7 @@
     <% MenuItem.all.each do |item| %>
       <label class="MenuItem-Container">
         <%= form_with(url: "/menu_items/#{item.id}",method:"PUT") do %>
-          <input class="Todoitem-Checkbox" type="checkbox"  onclick="this.form.submit()" >
+          <input class="Todoitem-Checkbox"  name ="active_meu" type="checkbox" <%= Menu.find(item.menu_id).active_menu ? "checked" : ""%> onclick="this.form.submit()" >
         <% end %>
         <p class= "MenuItem-Name">  <%= item.name %> </p>
         <p class="MenuItem-Description"><%= item.description %></p>

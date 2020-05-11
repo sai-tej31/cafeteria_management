@@ -13,9 +13,7 @@ class MenusController < ApplicationController
     redirect_to new_menu_path
   end
   def show
-    @menus = Menu.order(:name)
-    @order = current_user.orders.creating_order
-    render "options"
+
   end
   def update
     id = params[:id]

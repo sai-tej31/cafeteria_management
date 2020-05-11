@@ -1,3 +1,47 @@
-<div class="User-Signs">
-  <p> <%= link_to "Sign In!!!" , new_sessions_path %> </p>
+<h1> Manage Users </h1>
+<p> customers </p>
+<div style="display:flex">
+  <% User.all.customer.each do |user| %>
+    <%= user.id %>
+    <%= user.name %>
+  <% end %>
 </div>
+<p> clerk </p>
+<div style="display:flex">
+  <% User.all.clerk.each do |user| %>
+    <%= user.id %>
+    <%= user.name %>
+  <% end %>
+</div>
+<h1> Add Clerk  <h1>
+<section class="New_User">
+  <%= form_with url: users_path do |form| %>
+    <div class="Form-section">
+      <p class="FormInput-Label"> Name </p>
+      <%= form.text_field :name, class: "Form-Input" %>
+    </div>
+    <div class="Form-section">
+      <p class="FormInput-Label"> Email </p>
+      <%= form.email_field :email, class: "Form-Input" %>
+    </div>
+    <div class="Form-section">
+      <p class="FormInput-Label"> Password </p>
+      <%= form.password_field :password, class: "Form-Input" %>
+    </div>
+    <div class="Form-Section">
+      <%= form.submit "Sign-up!", class: "Form-Submit"%>
+    </div>
+  <% end %>
+</section>
+<p style= "margin-bottom: 30px; , color: orange;"> <%= link_to "create" , new_menu_path %> New Menu </p>
+
+<% @menus.each do |menu| %>
+  <% if menu.active_menu %>
+    <section class="Options-List">
+      <%= form_with(url: "/menus/#{menu.id}",method:"PUT") do %>
+        <p style= "margin-bottom: 30px; , color: blue;"> <%= link_to "Add Items " , menu_items_path %> To   <%= menu.name %> </p>
+      <% end  %>
+      <p style= "margin-bottom: 30px; , color: red;"> <%= link_to "check " , orders_path %> All  Orders </p>
+    </section>
+  <% end %>
+<% end %>
