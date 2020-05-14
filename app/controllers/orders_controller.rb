@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    render "index"
+    ensure_owner_or_clerk_logged_in
   end
   def create
     @order_update = current_user.orders.creating_order
@@ -19,8 +19,10 @@ class OrdersController < ApplicationController
     end
   end
   def pending_orders
-    render "pending_orders"
+    ensure_owner_or_clerk_logged_in
   end
+
+
   def show
     id = params[:id]
     @specific_order = Order.find(id)
@@ -28,6 +30,7 @@ class OrdersController < ApplicationController
   end
 
   def update
+    ensure_owner_or_clerk_logged_in
     id = params[:id]
     order = Order.find(id)
     order.status = "delivered"

@@ -6,6 +6,23 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
     end
   end
+  def ensure_owner_logged_in
+    unless current_user.role == "admin"
+      redirect_to menus_path
+    end
+  end
+
+  def ensure_clerk_logged_in
+    unless current_user.role == "clerk"
+      redirect_to menus_path
+    end
+  end
+
+  def ensure_owner_or_clerk_logged_in
+    unless current_user.role == "clerk" || current_user.role == "admin"
+      redirect_to menus_path
+    end
+  end
 
 
   def current_user

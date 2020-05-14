@@ -1,13 +1,15 @@
 class MenusController < ApplicationController
   def index
+    @user =current_user
     @menus = Menu.order(:name)
     @order = current_user.orders.creating_order
     render "index"
   end
   def new
-    render "new"
+    ensure_owner_logged_in
   end
   def create
+    ensure_owner_logged_in
     Menu.create(name: params[:name])
     flash[:error] = "Menu created successfully"
     redirect_to new_menu_path
@@ -16,6 +18,7 @@ class MenusController < ApplicationController
 
   end
   def update
+    ensure_owner_logged_in
     id = params[:id]
     active_menu = params[:active_menu]
     menu = Menu.find(id)
@@ -41,6 +44,7 @@ class MenusController < ApplicationController
     end
   end
   def destroy
+    ensure_owner_logged_in
     id =params[:id]
     menu = Menu.find(id)
     menu.destroy

@@ -9,6 +9,7 @@
 <p> clerk </p>
 <div style="display:flex">
   <% User.all.clerk.each do |user| %>
+
     <%= user.id %>
     <%= user.name %>
   <% end %>

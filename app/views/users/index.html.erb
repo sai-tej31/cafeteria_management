@@ -4,6 +4,7 @@
   <% User.all.customer.each do |user| %>
     <%= user.id %>
     <%= user.name %>
+    <%= link_to "orders", "users/#{user.id}" %>
   <% end %>
 </div>
 <p> clerk </p>

@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def index
+    ensure_owner_logged_in
     @order = current_user.orders.creating_order
-    render "index"
-
   end
 
   def new
@@ -14,7 +13,8 @@ class UsersController < ApplicationController
 
   def create
     current_uri = URI(request.referer).path
-    if current_uri == "/menus/options"
+    if current_uri == "/users"
+    ensure_owner_logged_in
       role = "clerk"
     else
       role = "customer"
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     else
       if user.save
         flash[:error] = "Regestered successfully"
-        if current_uri == "/menus/options"
+        if current_uri == "/users"
           redirect_to current_uri
         else
           redirect_to root_path
@@ -45,5 +45,8 @@ class UsersController < ApplicationController
     end
   end
   def show
+    id = params[:id]
+    @user = User.find(id)
+    render "user_orders"
   end
 end

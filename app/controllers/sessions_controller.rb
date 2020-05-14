@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       if user.role != "customer"
-        redirect_to "/users/admin"
+        redirect_to "/users"
       else
         redirect_to menus_path
       end

@@ -20,6 +20,10 @@
       <p class="Cafe-Name"> College Cafeteria </p>
       <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
     </div>
+    <% if @user.role != "customer" %>
+      <p class="Cart"> <%= link_to "HomePage" , "users" %> </p>
+    <% end %>
+
     <div class="Menu-Title">
       <% @menus.each do |menu| %>
         <% if menu.active_menu %>

@@ -46,3 +46,14 @@ align-content: center;
 .User-Sign{
   margin-bottom: 20px;
 }
+.UserOrders{
+  margin-top: 20px;
+  font-size: 28px;
+  margin-left: 20px;
+
+}
+.UserorderDetails{
+  margin-top: 20px;
+  display: flex;
+
+}
