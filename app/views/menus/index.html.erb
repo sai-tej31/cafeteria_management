@@ -39,7 +39,7 @@
                 <% elsif File.file?("#{Rails.root}/app/assets/images/menu_items/#{item.name}.jpeg") %>
                   <p class="MenuItemImage"> <%= image_tag "menu_items/#{item.name}.jpeg" %> </p>
                 <% else %>
-                  <p class="MenuItemImage"> <%= image_tag "menu_items/default.jpeg" %> </p>
+                  <p class="MenuItemImage"> <%= image_tag "menu_items/default.jpg" %> </p>
                 <% end %>
                 <p class="MenuItemDescription"> <%= item.description %></p>
                 <div class="MenuButtPrice">
