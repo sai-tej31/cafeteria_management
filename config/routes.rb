@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :orders
 
   get "/pending_orders", to: "orders#pending_orders", as: :pending_orders
+  get "/customers", to: "users#customers", as: :customers
+  get "/clerks", to: "users#clerks", as: :clerks
 
 
   get "/signin" => "sessions#new", as: :new_sessions

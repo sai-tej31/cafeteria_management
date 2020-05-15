@@ -1,0 +1,11 @@
+
+<section>
+  <p> Customers </p>
+  <% User.all.customer.each do |user| %>
+    <div class ="Clerk-Details">
+      <%= user.name %>
+      <%= user.email%>
+      <%= link_to "orders", "users/#{user.id}" %>
+    </div>
+  <% end %>
+</section>

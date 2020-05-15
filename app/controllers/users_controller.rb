@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
     current_uri = URI(request.referer).path
-    if current_uri == "/users"
+    if current_uri == "/clerks"
     ensure_owner_logged_in
       role = "clerk"
     else
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     else
       if user.save
         flash[:error] = "Regestered successfully"
-        if current_uri == "/users"
+        if current_uri == "/clerks"
           redirect_to current_uri
         else
           redirect_to root_path
@@ -48,5 +48,13 @@ class UsersController < ApplicationController
     id = params[:id]
     @user = User.find(id)
     render "user_orders"
+  end
+  def clerks
+    ensure_owner_logged_in
+    render "clerks"
+  end
+  def customers
+    ensure_owner_logged_in
+    render "customers"
   end
 end
