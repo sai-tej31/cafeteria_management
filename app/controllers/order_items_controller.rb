@@ -1,6 +1,7 @@
 class OrderItemsController < ApplicationController
   def index
     @order = current_user.orders.creating_order
+    @current_order = current_user.orders.confirmed
     render "index"
   end
 
@@ -8,7 +9,8 @@ class OrderItemsController < ApplicationController
     id = params[:id]
     new_order = current_user.orders.where(status: "started").first ? current_user.orders.where(status: "started").first : Order.create!(
       user_id: current_user.id,
-      status: "started"
+      status: "started",
+
     )
     item = MenuItem.find(id)
     new_order_item = OrderItem.create(

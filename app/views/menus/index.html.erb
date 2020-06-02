@@ -19,6 +19,9 @@
     <div class="Cafe-Head">
       <p class="Cafe-Name"> College Cafeteria </p>
       <p class="Cart"> <%= link_to "Go to Cart!" , "order_items" %> </p>
+      <% if @user.role == "customer" %>
+        <p class="Cart"> <%= link_to " My Orders" , "users/#{@user.id}"  %> </p>
+      <% end %>
     </div>
     <% if @user.role != "customer" %>
       <p class="Cart"> <%= link_to "HomePage" , "users" %> </p>

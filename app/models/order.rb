@@ -5,11 +5,15 @@ class Order < ActiveRecord::Base
     where("status= ?","started").first
   end
   def self.confirmed
-    where("status= ?","confirmed").first
+    all.where("status= ?","confirmed")
+  end
+  def self.delivered_or_confirmed
+    where.not("status = ? ", "started")
   end
   def self.delivered?
      status= "delivered"
   end
+
   def total
     amount = 0
     order_items.each { |item|

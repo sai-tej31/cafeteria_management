@@ -19,4 +19,7 @@ class User < ActiveRecord::Base
   def self.clerk
     where("role = ?", "clerk")
   end
+  def self.email(email)
+    user = all.where("email = ?", email).exists? ? find_by(email: email) : false
+  end
 end

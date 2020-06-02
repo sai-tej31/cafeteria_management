@@ -2,7 +2,7 @@
   <div class="Orders">
     <p style="margin-right: 15px;">
       <%= form_with(url: "/orders/#{order.id}",method:"PUT") do %>
-        <input class="Todoitem-Checkbox"  type="checkbox" onclick="this.form.submit()" >
+        <input class="Todoitem-Checkbox"  type="checkbox" <%=  order.status == "delivered" ? "checked" : "" %> onclick="this.form.submit()" >
       <%end%>
     </p style="margin-right: 15px;">
     <p class="Order-Id" style="margin-right: 15px;"> <%= order.id%> </p>

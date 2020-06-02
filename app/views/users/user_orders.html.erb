@@ -1,9 +1,11 @@
 <section class ="UserOrders">
-  <% @user.orders.each do |order| %>
+  <% @user.orders.delivered_or_confirmed.each do |order| %>
     <div class= "UserorderDetails">
       <p style="margin-left: 20px;"> <%= order.date %> </p>
       <p style="margin-left: 20px;"> <%= @user.name %> </p>
       <p style="margin-left: 20px;"> <%= link_to "order details", order_path(id: order.id ) %> </p>
+      <p style="margin-left: 20px;"> <%= order.status %> </p>
+
     </div>
   <% end %>
 </section>

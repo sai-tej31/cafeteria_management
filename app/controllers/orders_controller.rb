@@ -31,12 +31,20 @@ class OrdersController < ApplicationController
 
   def update
     ensure_owner_or_clerk_logged_in
+    current_uri = URI(request.referer).path
     id = params[:id]
     order = Order.find(id)
-    order.status = "delivered"
-    order.save!
-    flash[:error] =" Order delivered"
-    render "pending_orders"
+    if order.status == "confirmed"
+      order.status = "delivered"
+      order.save!
+      flash[:error] =" Order delivered"
+    elsif
+      order.status = "confirmed"
+      order.save!
+      flash[:error] = "order not delivered"
+    end
+    redirect_to current_uri
+
   end
 
   def destroy

@@ -30,5 +30,10 @@
     </div>
   <% else %>
     <h2 class="Cart-Empty"> Your cart is empty, <%= link_to "ADD ITEMS" , menus_path %> </h2>
+    <% if @current_order.count != 0 %>
+      <% @current_order.all.each do |current_order| %>
+        <p> <%= link_to "check your order info on #{current_order.date.to_formatted_s(:long)}", "/orders/#{current_order.id}" %> </p>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
