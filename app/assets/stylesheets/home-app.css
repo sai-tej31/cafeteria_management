@@ -17,12 +17,11 @@ body{
 }
 
 .Cafe-Home{
-  background-color: white;
   font-size: 50px;
   line-height: 1.6;
   font-weight: 600;
-  margin-left: 600px;
-  margin-right: 750px;
+  color: white;
+  text-align: center;
 }
 .CafeMainPage{
   align-items: center;

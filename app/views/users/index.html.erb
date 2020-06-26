@@ -1,19 +1,38 @@
-<h1> Manage Users </h1>
-<p> <%= link_to " View Customers ", "/customers" %> </p>
-<p> <%= link_to " View,Add and Update Clerks ", "/clerks" %> </p>
+<style>
+  body {
+    background-image: url('about-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
+<div class="Main-Head">
+  <h1> College Cafeteria </h1>
+</div>
 
-<p style= "margin-bottom: 30px; , color: orange;"> <%= link_to "create a menu or change active menu" , new_menu_path %>  </p>
+<section class = "admin">
+  <style>
+    a:link, a:visited {
+      background-color: #f44336;
+      color: white;
+      padding: 14px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
 
-<% Menu.all.each do |menu| %>
-  <% if menu.active_menu %>
-    <section class="Options-List">
-      <%= form_with(url: "/menus/#{menu.id}",method:"PUT") do %>
-        <p style= "margin-bottom: 30px; , color: blue;"> <%= link_to "Add Items " , menu_items_path %> To   <%= menu.name %> </p>
-      <% end  %>
-      <p style= "margin-bottom: 30px; , color: red;"> <%= link_to "check " , orders_path %> All  Orders </p>
-    </section>
-  <% end %>
-<% end %>
-<%= link_to "Order for Offline Customers", menus_path %>
-<p> <%= link_to "Reports", reports_path %> </p>
-<p> <%= link_to "Pending Orders", "/pending_orders" %> </p>
+    a:hover, a:active {
+      background-color: blue;
+    }
+  </style>
+  <div class ="Admin-Operations-Main">
+    <p class ="Admin-Operations"> <a href="/customers"> <img src = https://simpleicon.com/wp-content/uploads/users.png style="width:82px; height:86px"  > Users  </a> </p>
+    <p class ="Admin-Operations"> <a href="/clerks"> <img src = https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBWd8ttTpd5lgqtGhv7OaWaTbR-vjvfl9dgw&usqp=CAU style="width:82px; height:86px"  > Clerks  </a> </p>
+    <p class ="Admin-Operations"> <a href= "menus/new"> <img src = https://www.europress.md/wp-content/uploads/2018/05/Menus-140x200-mm-variety-of-menus-europress-printing-house.jpg style="width:82px; height:86px"  >  Menus </a> </p>
+    <p class ="Admin-Operations"> <%= link_to "All  Orders " , orders_path %>  </p>
+    <p class ="Admin-Operations">  <%= link_to "Add Items " , menu_items_path %> </p>
+    <p class ="Admin-Operations"> <%= link_to "Order for Offline Customers", menus_path %> </p>
+    <p class ="Admin-Operations"> <%= link_to "Reports", reports_path %> </p>
+    <p class ="Admin-Operations"> <%= link_to "Pending Orders", "/pending_orders" %> </p>
+  </div>
+</section>
