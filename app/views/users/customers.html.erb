@@ -1,11 +1,21 @@
-
+<style>
+  body {
+    background-color: lightgreen;
+    background-size: cover;
+  }
+</style>
 <section>
-  <p> Customers </p>
-  <% User.all.customer.each do |user| %>
-    <div class ="Clerk-Details">
-      <%= user.name %>
-      <%= user.email%>
-      <%= link_to "orders", "users/#{user.id}" %>
-    </div>
-  <% end %>
+  <p class= "User-Customers"> Customers </p>
+  <div class ="Customer-Details">
+    <p class = "Customer-Details-Men">  User-Id </p>
+    <p class = "Customer-Details-Men"> User-Name </p>
+    <p class = "Customer-Details-Men"> User-Email </p>
+    <p class = "Customer-Details-Men"> User-Orders </p>
+    <% User.all.customer.each do |user| %>
+      <p class = "Customer-Details-spec"> <%= user.id %> </p>
+      <p class = "Customer-Details-spec"> <%= user.name %> </p>
+      <p class = "Customer-Details-spec"> <%= user.email%> </p>
+      <p class = "Customer-Details-spec"> <%= link_to "orders", "users/#{user.id}" %> </p>
+    <% end %>
+  </div>
 </section>

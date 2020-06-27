@@ -1,12 +1,21 @@
+<style>
+  body {
+    background-image: url('about-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
 <div class="Cart-Items">
   <h1 class="Cart-Name">  Your-Cart </h1>
   <% if @order %>
     <% if @order.order_items.empty? %>
-      <h2 class="Cart-Empty"> Your cart is empty, <%= link_to "ADD ITEMS" , menus_path %> </h2>
+    <img src = "https://imageog.flaticon.com/icons/png/512/102/102661.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" style="width: 450px; height: 400px">
+    <h2 class="Cart-Empty"> Empty here ! <%= link_to "ADD " , menus_path %> </h2>
     <% else %>
       <% @order.all_items.uniq.each do |item| %>
         <div class ="OrderItemDetails">
-          <p> <%= item %> </p >
+          <p class="Cart-Items-Spec"> <%= item %> </p >
           <p class="OrderItemPrice"> Rs.<%= @order.order_items.price(item) * @order.all_items.count(item)  %> </p >
           <%= form_with url: "/order_items/#{@order.order_items.find_by(menu_item_name: item).id}", method:"delete" do |form| %>
             <%= form.submit "Remove item", class: "Remove-Button" %>
@@ -23,16 +32,17 @@
     <% end %>
     <div class ="Total">
       <p> Total </p>
-      <p style="margin-left:20px;"> <%= @order.total%> </p>
+      <p style="margin-left:20px;"> Rs. <%= @order.total%> </p>
       <%= form_with url: "/orders" do |form| %>
         <%= form.submit "Order", class: "Cart-Order" %>
       <% end %>
     </div>
   <% else %>
-    <h2 class="Cart-Empty"> Your cart is empty, <%= link_to "ADD ITEMS" , menus_path %> </h2>
+    <img src = "https://imageog.flaticon.com/icons/png/512/102/102661.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" style="width: 450px; height: 400px">
+    <h2 class="Cart-Empty"> Empty here ! <%= link_to "ADD " , menus_path %> </h2>
     <% if @current_order.count != 0 %>
       <% @current_order.all.each do |current_order| %>
-        <p> <%= link_to "check your order info on #{current_order.date.to_formatted_s(:long)}", "/orders/#{current_order.id}" %> </p>
+        <p class ="Orders-Pend"> <%= link_to "check your order info which is yet to be delivered ", "/orders/#{current_order.id}" %> </p>
       <% end %>
     <% end %>
   <% end %>

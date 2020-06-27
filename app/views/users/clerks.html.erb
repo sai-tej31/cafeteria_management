@@ -1,34 +1,45 @@
-<section style="display:flex">
-  <section>
-    <p> clerk </p>
-    <% User.all.clerk.each do |user| %>
-      <div class ="Clerk-Details">
-        <%= user.name %>
-        <%= user.email%>
-        <%= link_to "orders", "users/#{user.id}" %>
-      </div>
-    <% end %>
-  </section>
+<article >
+  <style>
+    body {
+      background-color: lightyellow;
+      background-size: cover;
+    }
+  </style>
   <section class ="Add-Clerk">
-    <h1 style= "font-size: 25px;"> Add Clerk  <h1>
+    <h1 class= "Clerk-Adding"> Add Clerk  <h1>
     <section class="New_User">
       <%= form_with url: users_path do |form| %>
         <div class="Form-section">
-          <p class="FormInput-Label"> Name </p>
+          <p class="FormInput-Label-C"> Name: </p>
           <%= form.text_field :name, class: "Form-Input" %>
         </div>
         <div class="Form-section">
-          <p class="FormInput-Label"> Email </p>
+          <p class="FormInput-Label-C"> Email: </p>
           <%= form.email_field :email, class: "Form-Input" %>
         </div>
         <div class="Form-section">
-          <p class="FormInput-Label"> Password </p>
+          <p class="FormInput-Label-C"> Password: </p>
           <%= form.password_field :password, class: "Form-Input" %>
         </div>
         <div class="Form-Section">
-          <%= form.submit "Sign-up!", class: "Form-Submit"%>
+          <%= form.submit "Create!", class: "Form-Submit"%>
         </div>
       <% end %>
     </section>
   </section>
-</section>
+  <section>
+    <p class= "User-Customers"> Clerks </p>
+    <div class ="Customer-Details">
+      <p class = "Customer-Details-Men">  User-Id </p>
+      <p class = "Customer-Details-Men"> User-Name </p>
+      <p class = "Customer-Details-Men"> User-Email </p>
+      <p class = "Customer-Details-Men"> User-Orders </p>
+      <% User.all.clerk.each do |user| %>
+        <p class = "Customer-Details-spec"> <%= user.id %> </p>
+        <p class = "Customer-Details-spec"> <%= user.name %> </p>
+        <p class = "Customer-Details-spec"> <%= user.email%> </p>
+        <p class = "Customer-Details-spec"> <%= link_to "orders", "users/#{user.id}" %> </p>
+      <% end %>
+    </div>
+  </section>
+</article>

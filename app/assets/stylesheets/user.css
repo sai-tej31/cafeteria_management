@@ -81,3 +81,49 @@ align-content: center;
   margin-bottom: 30px;
   font-size: 30px;
 }
+
+.User-Customers{
+  text-align: center;
+  text-decoration: solid;
+  font-size: 45px;
+  color: rgb(15, 83, 231);
+}
+
+.Customer-Details{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-left: 20px;
+  margin-right: 20px;
+
+
+}
+.Customer-Details-spec{
+  background-color: lightblue;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+.Customer-Details-Men{
+  background-color: lightblue;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: red;
+}
+.Add-Clerk{
+  text-align: center;
+}
+.Clerk-Adding{
+  color: red;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+.FormInput-Label-C{
+  font-size: 20px;
+  line-height: 1.6px;
+  margin-bottom: 30px;
+  color: blue;
+}
+.Clerk-Details{
+  padding: 10px;
+}
