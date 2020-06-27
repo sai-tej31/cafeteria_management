@@ -15,9 +15,7 @@
 </head>
 <style>
   body {
-    background-image: url('about-bg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: lightblue;
     background-size: cover;
   }
 </style>
@@ -38,14 +36,12 @@
     <div class="Menu-Title">
       <% @menus.each do |menu| %>
         <% if menu.active_menu %>
-          <section class="Menus-List">
-            <p class="Menu-Name"> <%= menu.name %> </p>
-          </section>
+          <p class="Menu-Name"> <%= menu.name %> </p>
           <div class= "Items">
             <% menu.menu_items.all.each do |item| %>
               <label class="MenuItem">
                 <p class= "MenuItemName">  <%= item.name %> </p>
-                <p> <img src="<%= item.image %>"  width="60" height="65"> </p>
+                <p class="Menu-Item-Image"> <img src="<%= item.image %>"  width="160" height="165"> </p>
                 <p class="MenuItemDescription"> <%= item.description %></p>
                 <div class="MenuButtPrice">
                   <%= form_with url: "/order_items?id=#{item.id}", method:"POST" do |form| %>

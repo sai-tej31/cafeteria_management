@@ -18,28 +18,15 @@ body{
   border-radius: 4px;
   margin-left: 50px;
 }
-.Menus-List{
-  margin-left: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-}
+
 .Menu-Name{
   color: black;
   font-size: 36px;
   margin-bottom: 10px;
+  text-decoration: underline;
 }
-.Menu-Image{
-  display: flex;
-  padding-left: 25px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.Image{
-  padding-left: 15px;
-  margin-left: 20px;
-}
+
+
 .MenuItem{
   margin-bottom: 20px;
   padding: 10px;
@@ -47,6 +34,7 @@ body{
 .MenuButtPrice{
   display: flex;
   align-items: center;
+  align-content: center;
 }
 .MenuItemButton{
   padding: 6px;
@@ -59,30 +47,32 @@ body{
 .MenuItemName{
   font-size: 25px;
   text-decoration: underline;
+  color: red;
+  margin-bottom: 20px;
 
 }
-.MenuItemImage{
+.Menu-Item-Image{
   padding-left: 5px;
   margin-top: 30px;
-  margin-bottom: 6px;
+  margin-bottom: 16px;
 }
 .MenuItemDescription{
-  font-size: 8px;
-  color: gray;
+  font-size: 18px;
   margin-bottom: 15px;
   padding-left: 10px;
+  margin-left: 10px;
 
 }
 
 .MenuItemprice{
-  margin-left: 120px;
-  color: blue;
+  margin-left: 20px;
 }
 .MenusNames{
   align-items: center;
 }
 .Items{
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
 }
 
 
