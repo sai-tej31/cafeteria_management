@@ -8,7 +8,9 @@ body{
 }
 .Cafe-Menu{
   font-size: 36px;
-  color: red;
+  text-align: center;
+  color: blue;
+  margin-bottom: 30px;
 }
 .Search-Menu{
   padding: 6px;
@@ -118,4 +120,7 @@ margin-left: 50px;
   margin-left: 10px;
   border-radius: 1px;
   border:1px solid transparent;
+}
+.CartBeside{
+  display: flex;
 }

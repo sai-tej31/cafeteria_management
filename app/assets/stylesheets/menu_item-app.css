@@ -20,30 +20,29 @@
   border:1px solid transparent;
 }
 .MenuItem-Container{
-  display: flex;
+  display: grid;
+  text-align: center;
+  grid-template-columns:  auto auto auto auto auto;
+  grid-row-gap: 25px;
+  padding: 30px;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 .MenuItem-Name{
   font-size: 16px;
   color: gray;
-  margin-left: 50px;
 }
 .MenuItem-Description{
   font-size: 16px;
   color: gray;
-  margin-left: 100px;
 }
 .MenuItem-price{
   font-size: 16px;
   color: gray;
-  margin-left: 200px;
 }
-.MenuItem-Checkbox{
-  margin-left: 50px;
-}
+
 .MenuItem-delete{
-  visibility: hidden;
-  margin-left: 10px;
+  visibility: visible;
 }
 .MenuItem-Container:hover .MenuItem-delete{
   visibility: visible;
@@ -58,4 +57,10 @@
 .Total{
   display: flex;
   margin-left: 50px;
+}
+.MenuItemAdd{
+  display: grid;
+  text-align: center;
+  grid-template-columns:  auto auto auto auto auto auto;
+
 }

@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     ensure_owner_or_clerk_logged_in
+    @order =Order.all.delivered_or_confirmed
   end
   def create
     @order_update = current_user.orders.creating_order

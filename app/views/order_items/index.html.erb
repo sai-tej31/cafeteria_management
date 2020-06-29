@@ -21,7 +21,7 @@
             <%= form.submit "Remove item", class: "Remove-Button" %>
           <% end %>
           <p style=" margin-left: 5px; font-size: 25px; margin-bottom: 5px; ">
-            <%= link_to "-", order_item_path(id: @order.order_item(item).id, count: 1),{:method => :delete} %>
+            <%= link_to "-", order_item_path(id: @order.order_item(item).id, count: 1),{:method => "delete"} %>
           </p>
           <p style=" margin-left: 10px; "> <%= @order.all_items.count(item) %> </p>
           <p style=" margin-left: 5px; font-size: 15px; ">

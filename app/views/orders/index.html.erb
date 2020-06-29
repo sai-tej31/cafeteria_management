@@ -1,30 +1,34 @@
-<% Order.all.each do |order| %>
-  <div class="Orders">
-    <p style="margin-right: 15px;">
-      <%= form_with(url: "/orders/#{order.id}",method:"PUT") do %>
-        <input class="Todoitem-Checkbox"  type="checkbox" <%=  order.status == "delivered" ? "checked" : "" %> onclick="this.form.submit()" >
-      <%end%>
-    </p style="margin-right: 15px;">
-    <p class="Order-Id" style="margin-right: 15px;"> <%= order.id%> </p>
-    <p class="Order-UserId" style="margin-right: 15px;"> <%= order.user_id%> </p>
-    <% if User.find(order.user_id).role == "customer" %>
-      <p style="margin-right: 15px;"> <%= User.find(order.user_id).name %> </p>
-    <% else %>
-      <p style="margin-right: 15px;"> Walk-in Customer </p>
-    <% end %>
-    <p class= "Order-Date" style="margin-right: 15px;">  <%= order.date %> </p>
-    <div class="Order-status" style="margin-right: 15px;">
-      <%= order.status  %>
-    </div>
-    <div style="margin-right: 15px;">
-      <%= form_with url: "/orders/#{order.id}", method:"get" do |form| %>
-        <%= link_to "order details", "orders/#{order.id}" %> </p>
-      <% end %>
-    </div>
-    <div style="margin-right: 15px;">
-      <%= form_with url: "/orders/#{order.id}", method:"delete" do |form| %>
-        <%= form.submit "Remove item", class: "MenuItemButton" %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+<section class="rders">
+  <% @order.all.each do |order| %>
+    <section class="Orders">
+      <p>
+        <%= form_with(url: "/orders/#{order.id}",method:"PUT") do %>
+          <input class="Todoitem-Checkbox"  type="checkbox" <%=  order.status == "delivered" ? "checked" : "" %> onclick="this.form.submit()" >
+        <%end%>
+      </p>
+      <p class="Order-Id"> <%= order.id%> </p>
+      <p class="Order-UserId" > <%= order.user_id%> </p>
+      <p>
+        <% if User.find(order.user_id).role == "customer" %>
+          <%= User.find(order.user_id).name %>
+        <% else %>
+          Walk-in Customer
+        <% end %>
+      </p>
+      <p >  <%= order.date %> </p>
+      <p>
+        <%= order.status  %>
+      </p>
+      <p>
+        <%= form_with url: "/orders/#{order.id}", method:"get" do |form| %>
+          <%= link_to "order details", "orders/#{order.id}" %> </p>
+        <% end %>
+      </p>
+      <p>
+        <%= form_with url: "/orders/#{order.id}", method:"delete" do |form| %>
+          <%= form.submit "Remove item", class: "MenuItemButton" %>
+        <% end %>
+      </p>
+    </section>
+  <% end %>
+</section>
