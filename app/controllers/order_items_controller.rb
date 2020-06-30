@@ -7,7 +7,7 @@ class OrderItemsController < ApplicationController
 
   def create
     id = params[:id]
-    new_order = current_user.orders.where(status: "started").first ? current_user.orders.where(status: "started").first : Order.create!(
+    new_order = current_user.orders.where(status: "started").first ? current_user.orders.where(status: "started").first : Order.create(
       user_id: current_user.id,
       status: "started",
 

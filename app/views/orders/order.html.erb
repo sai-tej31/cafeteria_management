@@ -18,7 +18,7 @@
   </div >
   <div style ="display:flex; align-items: center; align-content: center;">
     <h3 class= " status "> Order Status: </h3>
-    <p class =" status-display"> <%= @specific_order.status %> </p>
+    <p class =" status-display"> <%= @specific_order.status %> At <%= @specific_order.updated_at %> </p>
   </div>
   <h3 style= "margin-top: 30px;">
     <%= link_to "Go Back to Home page", "/menus"%>
