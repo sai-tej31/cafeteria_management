@@ -28,16 +28,15 @@ class MenuItemsController < ApplicationController
   def update
     id = params[:id]
     item = MenuItem.find(id)
-    menu = Menu.all.where(active_menu: true).first
-    if item.menu_id == menu.id
-      item.menu_id = Menu.find_by(name: "default").id
-      item.save
-      flash[:error]="#{item.name} removed from menu successfully"
+    if item.active == false
+      item.active = true
+      item.save!
+      flash[:error]="#{item.name} Made active successfully"
       redirect_to menu_items_path
     else
-      item.menu_id = menu.id
-      item.save
-      flash[:error]="#{item.name} added to menu successfully"
+      item.active = false
+      item.save!
+      flash[:error]="#{item.name} Made In-active successfully"
       redirect_to menu_items_path
     end
   end

@@ -7,12 +7,44 @@
   font-size: 20px;
 
 }
+.Orders1 {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto ;
+  grid-row-gap: 30px;
+  grid-column-gap: 10px;
+  padding: 40px;
+  font-size: 20px;
 
+}
+.Orderitem-Checkbox{
+  width: 16px;
+  height: 16px;
+  transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+
+}
+.Order-Status{
+  display: inline-flex;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+}
 .status-display{
+  margin-left: 25px;
   font-size: 30px;
   color: red;
+}
+.Home-Link{
+  margin-top: 20px;
+  font-size: 16px;
 }
 .pending-orders{
   font-size: 40px;
   color: olivedrab;
+  text-align: center;
+  text-decoration: underline;
+}
+.Empty-Orders{
+  text-align: center;
 }

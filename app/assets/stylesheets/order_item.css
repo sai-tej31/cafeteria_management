@@ -19,12 +19,12 @@
 }
 .OrderItemDetails{
   display: grid;
-  font-size: 16px;
-  grid-template-columns: auto auto auto auto auto auto;
+  font-size: 25px;
+  grid-template-columns: auto auto auto ;
   margin-top: 20px;
-  align-content: center;
-  align-items: center;
   justify-content: center;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
 }
 .OrderItemPrice{
   margin-left: 40px;
@@ -37,12 +37,14 @@
 }
 .Total{
   display: grid;
-  font-size: 16px;
-  grid-template-columns: auto auto auto;
+  font-size: 40px;
+  grid-template-columns: auto auto ;
   margin-top: 50px;
   align-content: center;
   align-items: center;
   justify-content: center;
+  grid-column-gap: 70px;
+  color: blueviolet;
 
 }
 .Cart-Order{
