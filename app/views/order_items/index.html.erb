@@ -14,28 +14,25 @@
     <h2 class="Cart-Empty"> Empty here ! <%= link_to "ADD " , menus_path %> </h2>
     <% else %>
       <% @order.all_items.uniq.each do |item| %>
-        <div class ="OrderItemDetails">
+        <div class ="OrderItemDetailsCart">
           <p class="Cart-Items-Spec"> <%= item %> </p >
           <p class="OrderItemPrice"> Rs.<%= @order.order_items.price(item) * @order.all_items.count(item)  %> </p >
+          <%= button_to "-", order_item_path(id: @order.order_item(item).id, count: 1),{:method => "delete"} %>
+          <p> <%= @order.all_items.count(item) %> </p>
+          <%= button_to "+", order_items_path(id: @order.order_item(item).menu_item_id, count: 1),{:method => :post} %>
           <%= form_with url: "/order_items/#{@order.order_items.find_by(menu_item_name: item).id}", method:"delete" do |form| %>
             <%= form.submit "Remove item", class: "Remove-Button" %>
           <% end %>
-          <p style=" margin-left: 5px; font-size: 25px; margin-bottom: 5px; ">
-            <%= link_to "-", order_item_path(id: @order.order_item(item).id, count: 1),{:method => "delete"} %>
-          </p>
-          <p style=" margin-left: 10px; "> <%= @order.all_items.count(item) %> </p>
-          <p style=" margin-left: 5px; font-size: 15px; ">
-            <%= link_to "+", order_items_path(id: @order.order_item(item).menu_item_id, count: 1),{:method => :post} %>
-          </p>
         </div>
       <% end %>
       <div class ="Total">
         <p> Total </p>
         <p style="margin-left:20px;"> Rs. <%= @order.total%> </p>
-        <%= form_with url: "/orders" do |form| %>
-          <%= form.submit "Order", class: "Cart-Order" %>
-        <% end %>
       </div>
+
+      <%= form_with url: "/orders" do |form| %>
+        <%= form.submit "Order", class: "Cart-Order" %>
+      <% end %>
     <% end %>
 
   <% else %>

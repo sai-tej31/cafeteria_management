@@ -17,6 +17,15 @@
   margin-bottom: 30px;
   color: blue;
 }
+.OrderItemDetailsCart{
+  display: grid;
+  font-size: 25px;
+  grid-template-columns: auto auto auto auto auto auto ;
+  margin-top: 20px;
+  justify-content: center;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
 .OrderItemDetails{
   display: grid;
   font-size: 25px;
@@ -48,9 +57,13 @@
 
 }
 .Cart-Order{
-  margin-left: 50px;
+  text-align: center;
   background-color: rgb(173, 159, 159);
   color: red;
+  font-size: 30px;
+  margin-top: 50px;
+
+
 }
 .Orders-Pend{
   font-size: 20px;
