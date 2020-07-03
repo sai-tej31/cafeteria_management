@@ -22,7 +22,7 @@
 .MenuItem-Container{
   display: grid;
   text-align: center;
-  grid-template-columns:  auto auto auto auto auto;
+  grid-template-columns:  auto auto auto auto auto auto;
   grid-row-gap: 25px;
   padding: 30px;
   margin-bottom: 20px;

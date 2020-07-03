@@ -69,9 +69,7 @@ body{
 .MenuItemprice{
   margin-left: 20px;
 }
-.MenusNames{
-  align-items: center;
-}
+
 .Items{
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
@@ -84,9 +82,22 @@ margin-left: 50px;
 .AddmenuItems{
   margin-left: 50px;
 }
+
+.MenusNames {
+  left: 0;
+  line-height: 20px;
+  margin-top: -20px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
 .All-Menus{
-  display: flex;
-  margin-top: 10px;
+  display: grid;
+  text-align: center;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
+
 }
 
 .Cafe-Head{
@@ -110,7 +121,7 @@ margin-left: 50px;
   margin-left: 10px;
 }
 .MenuChangeTop{
-  display: flex;
+  text-align: center;
 }
 .Add-Button{
   padding: 2px;
@@ -123,4 +134,12 @@ margin-left: 50px;
 }
 .CartBeside{
   display: flex;
+}
+.Add-Butt{
+  padding: 2px;
+  font-size: 14px;
+  color: red;
+  margin-left: 10px;
+  border-radius: 1px;
+  border:1px solid transparent;
 }

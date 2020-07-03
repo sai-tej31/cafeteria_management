@@ -39,14 +39,16 @@
         <p class= "MenuItem-Name">  Name </p>
         <p class="MenuItem-Description"> Description </p>
         <p class="MenuItem-price"> Price </p>
+        <p class="MenuItem-price"> Menu-Name </p>
         <p class="MenuItem-price"> Delete </p>
         <% MenuItem.all.each do |item| %>
           <%= form_with(url: "/menu_items/#{item.id}",method:"PUT") do %>
-            <input class="Todoitem-Checkbox"  name ="active_meu" type="checkbox" <%= item.active ? "checked" : ""%> onclick="this.form.submit()" >
+            <input class="Menuitem-Checkbox"  name ="active_menu" type="checkbox" <%= item.active ? "checked" : ""%> onclick="this.form.submit()" >
           <% end %>
-          <p class= "MenuItem-Name">  <%= item.name %> </p>
-          <p class="MenuItem-Description"><%= item.description %></p>
-          <p class="MenuItem-price"><%= item.price %></p>
+          <p class= "MenuItem-Name"> <%= item.name %> </p>
+          <p class="MenuItem-Description"> <%= item.description %> </p>
+          <p class="MenuItem-price"> <%= item.price %> </p>
+          <p class="MenuItem-price"> <% Menu.where(id: item.menu_id).name %> </p>
           <a href ="javascript:void(0)" class ="MenuItem-delete">
             <%= form_with(url: "/menu_items/#{item.id}",method: "delete") do %>
               <input type="image" src="trash-can-outline.svg" />
@@ -54,7 +56,5 @@
           </a>
        <% end %>
       </label>
-
   </article>
-
 </body>
