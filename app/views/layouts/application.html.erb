@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,12 +10,29 @@
   </head>
 
   <body>
-    <% if @current_user %>
-      <p class="UserHeader">
-        Welcome <%= @current_user.name %>
-        <%= button_to "Sign-Out", destroy_session_path, method: "delete"%>
-      </p>
-    <% end %>
+    <header>
+      <h1 class = "All-header"> College Cafeteria  </h1>
+      <p class="Sub-header"> The place to share your happiness </p>
+
+      <% if @current_user %>
+          <% if @current_user.role == "admin" %>
+            <div class ="Header-Grid">
+              <% if URI(request.referer).path != "/" %>
+                <%= link_to "HomePage" , users_path %>
+              <% end %>
+              <%= button_to "Sign-Out", destroy_session_path, method: "delete"%>
+            </div>
+          <% elsif @current_user.role == "customer"%>
+            <div class ="Header-Grid">
+              <%= link_to " My Orders" , "users/#{@current_user.id}"  %>
+              <%= button_to "Sign-Out", destroy_session_path, method: "delete"%>
+            </div>
+          <% end %>
+          <hr style="width:100%; text-align:center; margin-left:0; color:red">
+      <% end %>
+
+    </header>
+
     <% if flash[:error] %>
       <p class="Flash-Error">
         <%= flash[:error] %>

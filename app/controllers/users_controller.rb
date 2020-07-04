@@ -47,6 +47,7 @@ class UsersController < ApplicationController
   def show
     id = params[:id]
     @user = User.find(id)
+    @current_user = User.find(session[:current_user_id])
     render "user_orders"
   end
   def clerks

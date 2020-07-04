@@ -15,22 +15,15 @@
 </head>
 <style>
   body {
-    background-color: lightblue;
+    background-color: lightyellow;
     background-size: cover;
   }
 </style>
 
 <body>
   <article class="CafemainPage">
-    <p class="Cafe-Name"> College Cafeteria </p>
     <div class="Cafe-Head">
       <p class="Cart"> <a href= "/order_items"> <img src = https://cdn3.vectorstock.com/i/1000x1000/34/37/shopping-cart-icon-vector-11363437.jpg style="width:82px; height:86px" > </a> </p>
-      <% if @user.role == "customer" %>
-        <p class="Cart"> <%= link_to " My Orders" , "users/#{@user.id}"  %> </p>
-      <% else %>
-        <p class="Cart"> <%= link_to "HomePage" , "users" %> </p>
-      <% end %>
-
     </div>
 
     <div class="Menu-Title">

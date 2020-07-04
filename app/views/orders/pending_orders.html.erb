@@ -5,27 +5,32 @@
   }
 </style>
 <h3 class="pending-orders"> PENDING-ORDERS </h3>
-<div class="Orders1">
+<% if Order.where(status: "confirmed").count ==0 %>
 
-  <p> Mark as Delivered </p>
-  <p> Order Id </p>
-  <p> User Id </p>
-  <p> User-Name </p>
-  <p> Order date </p>
-  <p> Order Status </p>
-  <p> Details </p>
+<p class="Empty-Orders"> No Pending orders </p>
+<% else %>
+  <div class="Orders1">
 
-  <% Order.where(status: "confirmed").each do |order| %>
-    <%= form_with(url: "/orders/#{order.id}", method:"PUT") do %>
-      <input class="Orderitem-Checkbox" type="checkbox"   onclick="this.form.submit()" >
+    <p> Mark as Delivered </p>
+    <p> Order Id </p>
+    <p> User Id </p>
+    <p> User-Name </p>
+    <p> Order date </p>
+    <p> Order Status </p>
+    <p> Details </p>
+
+    <% Order.where(status: "confirmed").each do |order| %>
+      <%= form_with(url: "/orders/#{order.id}", method:"PUT") do %>
+        <input class="Orderitem-Checkbox" type="checkbox"   onclick="this.form.submit()" >
+      <% end %>
+      <p class="Order-Id"> <%= order.id%> </p>
+      <p class="Order-UserId"> <%= order.user_id%> </p>
+      <p> <%= User.find(order.user_id).name %> </p>
+      <p class= "Order-Date">  <%= order.updated_at %> </p>
+      <div class="Order-status">
+        <%= order.status  %>
+      </div>
+      <p> <%= link_to "order details", "orders/#{order.id}" %> </p>
     <% end %>
-    <p class="Order-Id"> <%= order.id%> </p>
-    <p class="Order-UserId"> <%= order.user_id%> </p>
-    <p> <%= User.find(order.user_id).name %> </p>
-    <p class= "Order-Date">  <%= order.updated_at %> </p>
-    <div class="Order-status">
-      <%= order.status  %>
-    </div>
-    <p> <%= link_to "order details", "orders/#{order.id}" %> </p>
-  <% end %>
-</div>
+  </div>
+<% end %>

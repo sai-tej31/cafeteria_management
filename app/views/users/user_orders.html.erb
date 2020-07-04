@@ -34,7 +34,7 @@
       <% end %>
     <% else %>
       <div class = "Empty-Orders">
-        <% if @user.role == "customer" %>
+        <% if @current_user.role == "customer" %>
           <p> oops! You have never ordered here Click and  order some delicious food
             <%= link_to "click here" , "/menus" %>
           </p>

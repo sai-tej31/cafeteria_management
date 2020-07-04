@@ -25,28 +25,25 @@
   </style>
 
   <article class="Cafe-Page">
-  <div class="Cafe-Home">
-    <h1> College Cafeteria </h1>
-  </div>
-  <p class="NewUsers_Title"> Sign-in! </p>
-  <section class="New_User">
-    <%= form_with url: sessions_path do |form| %>
+    <p class="NewUsers_Title"> Sign-in! </p>
+    <section class="New_User">
+      <%= form_with url: sessions_path do |form| %>
 
-      <div class="Form-section">
-        <p class="FormInput-Label"> Email </p>
-        <%= form.email_field :email, class: "Form-Input" %>
-      </div>
+        <div class="Form-section">
+          <p class="FormInput-Label"> Email </p>
+          <%= form.email_field :email, class: "Form-Input" %>
+        </div>
 
-      <div class="Form-section">
-        <p class="FormInput-Label"> Password </p>
-        <%= form.password_field :password, class: "Form-Input" %>
-      </div >
-      <div style="display: flex; align-items: center; align-contents: center;">
-        <%= form.submit "Sign-in!", class: "Form-Submit"%>
-        <p style="margin-left: 50px; margin-top: 10px; color: green;"> <%= link_to "Create account!" , new_user_path %> </p>
-      <div>
-    <% end %>
-  </section>
+        <div class="Form-section">
+          <p class="FormInput-Label"> Password </p>
+          <%= form.password_field :password, class: "Form-Input" %>
+        </div >
+        <div style="display: flex; align-items: center; align-contents: center;">
+          <%= form.submit "Sign-in!", class: "Form-Submit"%>
+          <p style="margin-left: 50px; margin-top: 10px; color: green;"> <%= link_to "Create account!" , new_user_path %> </p>
+        <div>
+      <% end %>
+    </section>
 
   </article>
 </body>

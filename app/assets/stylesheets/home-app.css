@@ -87,14 +87,7 @@ body{
   margin-left: 20px;
 }
 
-.UserHeader{
-  padding: 10px;
-  background-color: lightgray;
-  font-size: 16px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-}
+
 .Flash-Error{
   color: darkred;
   margin-bottom: 20px;
@@ -109,4 +102,24 @@ body{
   border-radius: 4px;
   margin-top: 20px;
 
+}
+.All-header{
+  text-align: center;
+  color: blueviolet;
+  font-size: 50px;
+  font-style: oblique;
+  line-height: 20px;
+}
+.Sub-header{
+  text-align: center;
+  margin-left: 150px;
+  margin-top: 20px;
+  color: blue;
+
+}
+.Header-Grid{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: end;
+  grid-column-gap: 20px;
 }
