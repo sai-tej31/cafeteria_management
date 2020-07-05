@@ -7,13 +7,15 @@
   color: blue;
   font-size: 30px;
   margin-bottom: 30px;
-  margin-left: 50px;
+
 }
 .New_User{
   margin-bottom: 20px;
-  margin-left: 50px;
-  margin-left: 50px;
-
+  width: 500px;
+  border: 5px solid green;
+  padding: 50px;
+  margin: 20px;
+  text-align: center;
 }
 .Form-Section{
   margin-bottom: 30px;
@@ -21,12 +23,14 @@
 }
 .FormInput-Label{
   margin-bottom: 30px;
-  color: #555555;
+  color: blueviolet;
+  font-size: 20px;
 }
 .Form-Input{
   font-size: 20px;
   padding: 6px;
   margin-bottom: 20px;
+  border-radius: 8px;
 }
 .Form-Submit{
   font-size: 20px;
@@ -34,7 +38,6 @@
   padding: 8px;
   border: 0;
   border-radius: 4px;
-  margin-top: 20px;
 
 }
 .User-Signs{
@@ -125,4 +128,13 @@ align-content: center;
 }
 .Clerk-Details{
   padding: 10px;
+}
+
+.Form-Submit1{
+  font-size: 20px;
+  color: #38d838;
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+
 }

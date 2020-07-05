@@ -17,7 +17,7 @@
 <body>
   <style>
     body {
-      background-image: url('cafe3.jpeg');
+      background-image: url('about-bg.jpg');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -25,22 +25,21 @@
   </style>
 
   <article class="Cafe-Page">
-    <p class="NewUsers_Title"> Sign-in! </p>
     <section class="New_User">
+      <p class="NewUsers_Title"> Sign-in! </p>
       <%= form_with url: sessions_path do |form| %>
-
         <div class="Form-section">
-          <p class="FormInput-Label"> Email </p>
+          <p class="FormInput-Label"> Email: </p>
           <%= form.email_field :email, class: "Form-Input" %>
         </div>
 
         <div class="Form-section">
-          <p class="FormInput-Label"> Password </p>
+          <p class="FormInput-Label"> Password: </p>
           <%= form.password_field :password, class: "Form-Input" %>
         </div >
-        <div style="display: flex; align-items: center; align-contents: center;">
-          <%= form.submit "Sign-in!", class: "Form-Submit"%>
-          <p style="margin-left: 50px; margin-top: 10px; color: green;"> <%= link_to "Create account!" , new_user_path %> </p>
+        <div class ="Sign-Up-Label">
+          <p style = "margin-right: 40px;"> <%= form.submit "Sign-in!", class: "Form-Submit"%> </p>
+          <p class= "Form-Submit"> <%= link_to "Sign-Up!" , new_user_path %> </p>
         <div>
       <% end %>
     </section>

@@ -12,8 +12,12 @@ body{
   min-height: 100%;
 }
 .Cafe-Page{
-  align-items: center;
-  align-content: center;
+  display: grid;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 100px;
+
+
 }
 
 .Cafe-Home{
@@ -106,14 +110,16 @@ body{
 .All-header{
   text-align: center;
   color: blueviolet;
-  font-size: 50px;
+  font-size: 75px;
   font-style: oblique;
   line-height: 20px;
+  margin-top: 30px;
 }
 .Sub-header{
   text-align: center;
-  margin-left: 150px;
-  margin-top: 20px;
+  font-size: 20px;
+  margin-left: 450px;
+  margin-top: 45px;
   color: blue;
 
 }
@@ -122,4 +128,20 @@ body{
   grid-template-columns: auto auto;
   justify-content: end;
   grid-column-gap: 20px;
+}
+.Sign-Up-Label{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.About-Us{
+  justify-content: end;
+  width: 140px;
+  border: 3px solid green;
+  padding: 5px;
+  margin: 2px;
+  text-align: center;
+  font-size: 25px;
 }

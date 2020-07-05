@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "/customers", to: "users#customers", as: :customers
   get "/clerks", to: "users#clerks", as: :clerks
 
+  get "/about", to: "home#about", as: :about
+
 
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions

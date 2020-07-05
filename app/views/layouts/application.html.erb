@@ -15,22 +15,28 @@
       <p class="Sub-header"> The place to share your happiness </p>
 
       <% if @current_user %>
-          <% if @current_user.role == "admin" %>
-            <div class ="Header-Grid">
-              <% if URI(request.referer).path != "/" %>
-                <%= link_to "HomePage" , users_path %>
-              <% end %>
-              <%= button_to "Sign-Out", destroy_session_path, method: "delete"%>
-            </div>
-          <% elsif @current_user.role == "customer"%>
-            <div class ="Header-Grid">
-              <%= link_to " My Orders" , "users/#{@current_user.id}"  %>
-              <%= button_to "Sign-Out", destroy_session_path, method: "delete"%>
-            </div>
-          <% end %>
-          <hr style="width:100%; text-align:center; margin-left:0; color:red">
-      <% end %>
+        <% if @current_user.role == "admin" %>
+          <div class ="Header-Grid">
 
+            <% if request.original_fullpath != "/users" %>
+              <%= link_to "HomePage" , users_path %>
+            <% end %>
+            <%= button_to "Sign-Out", destroy_session_path, method: "delete"%>
+          </div>
+        <% elsif @current_user.role == "customer"%>
+          <div class ="Header-Grid">
+            <%= link_to " My Orders" , "users/#{@current_user.id}"  %>
+            <%= button_to "Sign-Out", destroy_session_path, method: "delete"%>
+          </div>
+          <hr style="width:100%; text-align:center; margin-left:0; color:black">
+        <% end %>
+      <% else %>
+        <%if request.original_fullpath != "/about"%>
+          <p class ="About-Us">
+            <%= link_to "About-Us", "/about"%>
+          </p>
+        <% end %>
+      <% end %>
     </header>
 
     <% if flash[:error] %>

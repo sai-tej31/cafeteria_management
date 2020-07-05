@@ -20,7 +20,6 @@
 <body>
 
   <article class="CafemainPage">
-    <p class="Cafe-Name"> College Cafeteria </p>
     <div class="Cafe-Title">
       <p class="Cafe-Menu"> Total-Items </p>
     </div>
@@ -48,7 +47,7 @@
           <p class= "MenuItem-Name"> <%= item.name %> </p>
           <p class="MenuItem-Description"> <%= item.description %> </p>
           <p class="MenuItem-price"> <%= item.price %> </p>
-          <p class="MenuItem-price"> <% Menu.where(id: item.menu_id).name %> </p>
+          <p class="MenuItem-price"> <%= Menu.find(item.menu_id).name %> </p>
           <a href ="javascript:void(0)" class ="MenuItem-delete">
             <%= form_with(url: "/menu_items/#{item.id}",method: "delete") do %>
               <input type="image" src="trash-can-outline.svg" />
