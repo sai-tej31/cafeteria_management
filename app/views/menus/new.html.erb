@@ -8,25 +8,26 @@
     <h1>
       <%= form_with(url: "/menus",method: "POST",class: "Add-Item") do %>
         <input class="AddItem-Det" type="text" placeholder="Name of the menu" name="name">
-        <input class="Add-Butt" type = "submit" value = "Add">
+        <input class="Add-Button" type = "submit" value = "Add">
       <% end %>
     </h1>
   </div>
-  <div class="MenusNames">
-    <% Menu.all.each do |menu| %>
-      <div class ="All-Menus">
-        <p>
-          <%= form_with(url: "/menus/#{menu.id}",method: "PUT") do %>
-            <input class="Menuitem-Checkbox1" name="active_menu" type="checkbox" <%= menu.active_menu ? "checked" : "" %> onclick="this.form.submit()" >
-          <%end%>
-        </p>
-        <p>  <%= menu.name %> </p>
-        <a href ="javascript:void(0)" class ="Menu-Delete1">
-          <%= form_with(url: "/menus/#{menu.id}",method: "delete") do %>
-            <input type="submit" value="Delete" />
-          <% end %>
-        </a>
-      </div>
+  <div class ="All-Menus">
+    <p class ="Head-Menunames"> Active/In-active </p>
+    <p class ="Head-Menunames">  Menu Name </p>
+    <p class ="Head-Menunames"> Delete </p>
+
+    <% Menu.order(:id).each do |menu| %>
+        <%= form_with(url: "/menus/#{menu.id}",method: "PUT") do %>
+          <input class="Menuitem-Checkbox1" name="active_menu" type="checkbox" <%= menu.active_menu ? "checked" : "" %> onclick="this.form.submit()" >
+        <%end%>
+
+      <p>  <%= menu.name %> </p>
+      <a href ="javascript:void(0)" class ="Menu-Delete1">
+        <%= form_with(url: "/menus/#{menu.id}",method: "delete") do %>
+          <input type="submit" value="Delete" />
+        <% end %>
+      </a>
     <% end %>
   </div>
 </article>

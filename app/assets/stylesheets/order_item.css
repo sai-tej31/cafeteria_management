@@ -12,7 +12,7 @@
   color: blue;
 }
 .Cart-Empty{
-  font-size: 25px;
+  font-size: 55px;
   margin-top: 30px;
   margin-bottom: 30px;
   color: blue;
@@ -68,4 +68,8 @@
 .Orders-Pend{
   font-size: 20px;
   margin-top: 10px;
+}
+.Cart_imageEmpty{
+  width: 50px;
+  height: 50px;
 }

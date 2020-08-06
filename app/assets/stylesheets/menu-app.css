@@ -121,25 +121,29 @@ margin-left: 50px;
   margin-left: 10px;
 }
 .MenuChangeTop{
+  display: grid;
+  align-content: center;
   text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
 }
 .Add-Button{
-  padding: 2px;
+  padding: 5px;
   font-size: 14px;
   color:rgb(80, 74, 74);
   background-color: green;
-  margin-left: 10px;
+  margin-left: 20px;
   border-radius: 1px;
   border:1px solid transparent;
 }
+
 .CartBeside{
   display: flex;
 }
-.Add-Butt{
-  padding: 2px;
-  font-size: 14px;
-  color: red;
-  margin-left: 10px;
-  border-radius: 1px;
-  border:1px solid transparent;
+
+.Head-Menunames{
+  font-size: 25px;
+  color: blue;
+  text-decoration: underline;
+  margin-top: 30px;
 }
